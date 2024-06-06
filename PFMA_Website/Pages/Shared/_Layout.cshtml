@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PFMA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <div class="row">
+                <div class="col-2">
+                    <img src="~/images/log.ico" class="logo" />
+                </div>
+                <div class="col-8 text-center">
+                    <span class="baniere">Plateforme Multi-Acteur De La Chaine De Valeur De Riz Au Cameroun</span>
+                </div>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="col-2 login-out">
+                        <i class="bx bx-person"></i>
+                        <span> <a asp-page="/Form/Connexion">Connexion</a> </span>
+                        /
+                        <span> <a asp-page="/Form/Inscription">Inscription</a></span>
+                    </div>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="col-2 login-out">
+                        <i class="bx bx-person"></i>
+                        <span> @User.Identity.Name </span>
+                        <span class="ml-3"> 
+                            <a asp-page-handler="Logout" title="Deconnexion">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                                </svg>
+                            </a> 
+                        </span>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Index">ACCUEIL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Acteur">ACTEUR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Echange/Echange">ECHANGE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Sir">S.I.R</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Mediatheque">MEDIATHEQUE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Bibliotheque">BIBLIOTHEQUE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Hand">HAND IN HAND</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted text-center">
+        <div class="container">
+            &copy; 2024 - PFMA
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

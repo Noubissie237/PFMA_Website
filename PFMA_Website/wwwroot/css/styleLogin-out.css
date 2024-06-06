@@ -1,0 +1,31 @@
+﻿body {
+    background: url("../images/riziere1.jpg");
+    background-size:cover;
+    opacity: 0.95
+}
+
+.mainForm-connexion, .mainForm-inscription {
+    font-weight: bold;
+    padding:20px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    box-shadow: 1px 1px 5px #635a5aab;
+    border-radius: 5px;
+}
+
+.mainForm-connexion .title, .mainForm-inscription .title {
+    font-size: 25px
+}
+
+.inscription-link{
+    font-weight:100
+}
+
+.mainForm-inscription
+{
+    width:40vw;
+}

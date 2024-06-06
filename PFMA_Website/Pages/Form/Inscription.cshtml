@@ -1,0 +1,64 @@
+﻿@page
+@model PFMA_Website.Pages.InscriptionModel
+@{
+    ViewData["title"] = "Inscription";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["title"] - PFMA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styleLogin-out.css" />
+</head>
+<body>
+
+    <div class="mainForm-inscription">
+        <div class="text-center">
+            <a asp-page="/Start/Index">
+                <img src="~/images/log.ico" width="100" />
+            </a>
+        </div>
+        <p class="title text-center text-primary"> Inscription </p>
+        <hr />
+        <form method="post">
+            <div class="form-floating mb-3">
+                <label for="floatingName">Nom</label>
+                <input type="text" class="form-control" name="username" id="floatingName" placeholder="Entrez votre nom">
+            </div>
+            <div class="form-floating mb-3 row">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Entrez votre email">
+                </div>
+                <div class="col-md-6">
+                    <label for="floatingSelect">Genre</label>
+                    <select class="form-select form-control" name="genre" id="floatingSelect" aria-label="Default select example">
+                        <option selected disabled>Selectionnez un genre</option>
+                        <option value="Institue">Institue</option>
+                        <option value="Organisation">Organisation</option>
+                        <option value="Particulier">Particulier</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-floating">
+                <label for="floatingPassword">Mot de passe</label>
+                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Mot de passe">
+            </div>
+            <div class="form-floating mt-3">
+                <label for="floatingConfirm">Confirmez</label>
+                <input type="password" class="form-control" id="floatingConfirm" placeholder="Repeter le mot de passe">
+            </div>
+            <p class="mt-3">
+                <button class="btn btn-outline-primary w-100">S'inscrire</button>
+            </p>
+            <p class="mt-3 inscription-link text-center">
+                Vous avez déjà un compte ? <a asp-page="/Form/Connexion">connectez-vous</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@page
+@model PFMA_Website.Pages.ConnexionModel
+@{
+    ViewData["title"] = "Connexion";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["title"] - PFMA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styleLogin-out.css" />
+</head>
+<body>
+
+    <div class="mainForm-connexion">
+        <div class="text-center">
+            <a asp-page="/Start/Index">
+                <img src="~/images/log.ico" width="100" />
+            </a>
+        </div>
+        <p class="title text-center text-primary"> Connexion </p>
+        <hr />
+        <form method="post">
+            @if (Model.displayInvalidAccountMessage){
+                <div class="alert alert-danger text-center text-danger" role="alert">
+                    Email ou Mot de passe invalide !
+                </div>
+            }
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Email</label>
+                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="Entrez votre email" required>
+            </div>
+            <div class="form-floating">
+                <label for="floatingPassword">Mot de passe</label>
+                <input type="password" class="form-control" name="password" id="floatingPassword" minlength="8" placeholder="Mot de passe" required>
+            </div>
+            <p class="mt-3">
+                <button class="btn btn-outline-primary w-100">Se connecter</button>
+            </p>
+            <p class="mt-3 inscription-link text-center">
+                Vous n'avez pas encore de compte ? <a asp-page="/Form/Inscription">inscrivez-vous</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>
