@@ -32,7 +32,7 @@
                         <i class="bx bx-person"></i>
                         <span> @User.Identity.Name </span>
                         <span class="ml-3"> 
-                            <a asp-page-handler="Logout" title="Deconnexion">
+                            <a asp-page-handler="Logout" asp-page="/Start/Index" title="Deconnexion">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
@@ -52,26 +52,61 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Index">ACCUEIL</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Index" ? "link-active" : "")" asp-area="" asp-page="/Start/Index">ACCUEIL</a>
+                            <ul class="submenu">
+                                <li class="sub">  
+                                    <a href="#">Descriptif du Projet</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Acteur">ACTEUR</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Acteur" ? "link-active" : "")" asp-area="" asp-page="/Start/Acteur">ACTEUR</a>
+                            <ul class="submenu">
+                                <li class="sub">
+                                    <a asp-page="">Acteur institutionnel</a>
+                                </li>
+                                <li class="sub">
+                                    <a asp-page="">Acteur direct</a>
+                                </li>
+                                <li class="sub">
+                                    <a asp-page="">Acteur indirect</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Echange/Echange">ECHANGE</a>
+                            <ul class="submenu">
+                                <li class="sub">
+                                    <a asp-page="">Forum</a>
+                                </li>
+                                <li class="sub">
+                                    <a asp-page="">Vidéo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Sir" ? "link-active" : "")" asp-area="" asp-page="/Start/Sir">S . I . R</a>
+                            <ul class="submenu">
+                                <li class="sub">
+                                    <a asp-page="">Informations générales</a>
+                                </li>
+                                <li class="sub">
+                                    <a asp-page="">Informations commerciales</a>
+                                </li>
+                                <li class="sub">
+                                    <a asp-page="">Informations technique</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Sir">S.I.R</a>
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Mediatheque" ? "link-active" : "")" asp-area="" asp-page="/Start/Mediatheque">MEDIATHEQUE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Mediatheque">MEDIATHEQUE</a>
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Bibliotheque" ? "link-active" : "")" asp-area="" asp-page="/Start/Bibliotheque">BIBLIOTHEQUE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Bibliotheque">BIBLIOTHEQUE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light navbar-brand" asp-area="" asp-page="/Hand">HAND IN HAND</a>
+                            <a class="nav-link text-light navbar-brand @(ViewContext.RouteData.Values["Page"].ToString() == "/Start/Hand" ? "link-active" : "")" asp-area="" asp-page="/Start/Hand">HAND IN HAND</a>
                         </li>
                     </ul>
                 </div>
@@ -84,12 +119,79 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted text-center">
-        <div class="container">
-            &copy; 2024 - PFMA
-        </div>
-    </footer>
+    @if (!@ViewData["Title"].ToString().Contains("administration"))
+    {
+        <footer class="border-top footer bg-success text-white text-center text-lg-start">
+            <div class="container p-2">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">PFMA</h5>
 
+                        <p>
+                            Face à une production agricole à la fois trop coûteuse et trop faible au regard
+                            de la demande, les agricultrices et agriculteurs Camerounais misent sur la plateforme PFMA.
+                            Ils obtiennent déjà une production plus régulière, un sol plus riche et une grande diversité
+                            de cultures leur offre davantage de souplesse en matière de revenus. A leurs côtés, la PFMA
+                            Cameroun et ses partenaires sont engagés dans cette voie. Pour aller plus loin, dans le
+                            cadre du projet PFMA, et coordonné par le PFMA CAMEROUN, durant quatre ans, scientifiques,
+                            formateurs, producteurs et consommateurs vont mutualiser leurs connaissances et leurs
+                            savoir-faire.
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Liens</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a asp-page="/Start/Index" class="text-white">Accueil</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Start/Acteur" class="text-white">Acteur</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Echange/Echange" class="text-white">Echange</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Start/Sir" class="text-white">S.I.R</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Start/Mediatheque" class="text-white">Médiatheque</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Start/Bibliotheque" class="text-white">Bibliotheque</a>
+                            </li>
+                            <li>
+                                <a asp-page="/Start/Hand" class="text-white">Hand in Hand</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-0">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a asp-page="okokok" class="text-white">Link 1</a>
+                            </li>
+                            <li>
+                                <a asp-page="okokok" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a asp-page="okokok" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a asp-page="okokok" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2024 Copyright:
+                <a class="text-white" href="#">pfma.com</a>
+            </div>
+        </footer>
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

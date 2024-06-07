@@ -2,6 +2,8 @@
     --autre-principal: #938059;
     --vert-principal: #027860;
     --blanc: #FFF;
+    --jaune-principal: #cfd322da;
+    --jaune-secondaire: #cfd3227c;
 }
 
 a.navbar-brand {
@@ -30,7 +32,8 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+  font-size: 12px;
+  overflow-x: hidden;
 }
 @media (min-width: 768px) {
   html {
@@ -69,8 +72,6 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
 }
 
 /* ----------------- PERSONAL STYLE ------------------ */
@@ -88,8 +89,10 @@ body {
 }
 
 .navbar {
-    background-color: var(--autre-principal);
+    background-color: var(--jaune-principal);
+    padding: 0;
 }
+
 
 .login-out
 {
@@ -100,3 +103,39 @@ body {
     font-size: 20px;
 }
 
+.submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    color: var(--blanc);
+    width: 100%
+}
+
+.submenu li
+{
+    list-style-type: none;
+}
+
+.submenu a
+{
+    text-decoration: none;
+    color: var(--blanc);
+}
+
+.dropdown:hover .submenu
+{
+    padding-left:0;
+    display:block;
+    background-color: var(--vert-principal);
+}
+
+.submenu .sub:hover
+{
+    background-color:var(--jaune-secondaire);
+}
+
+.link-active
+{
+    background-color: var(--vert-principal);
+}

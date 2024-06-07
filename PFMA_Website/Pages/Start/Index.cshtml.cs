@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,6 +21,12 @@ namespace PFMA_Website.Pages
         public void OnGet()
         {
 
+        }
+
+        public async Task<IActionResult> OnGetLogout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/Start");
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.Extensions.Options;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace PFMA_Website.Pages
 {
@@ -18,7 +20,6 @@ namespace PFMA_Website.Pages
     {
         private readonly DataContext _dataContext;
         public bool displayInvalidAccountMessage = false;
-
         public ConnexionModel(DataContext dataContext)
         {
             _dataContext = dataContext;
@@ -80,10 +81,5 @@ namespace PFMA_Website.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnGetLogout()
-        {
-            await HttpContext.SignOutAsync();
-            return Redirect("/Start");
-        }
     }
 }
