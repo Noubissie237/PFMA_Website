@@ -1,10 +1,66 @@
 ﻿@page
-@model IndexModel
+@model IndexModel;
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Hello NK</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="indexPage_first_div">
+    <img src="~/images/pexels1.jpg" alt="first image"/>
+    <p class="img-text">Les acteurs de la filière riz au Cameroun se mettent ensemble pour relever les défis</p>
+</div>
+
+<div class="indexPage_second_div mt-5 mb-5 container">
+    <h2>Dernière actualité...</h2>
+
+    <div class="row mb-5">
+        @foreach (var actuality in IndexModel.Actualities)
+        {
+            <div class="col-lg-4 col-sm-12">
+                <p class="actu_text">
+                    <a asp-page="@actuality.tag">
+                        @actuality.text
+                    </a>
+                </p>
+                <p class="actu_date">
+                    @actuality.date
+                </p>
+                <p class="actu_suite">
+                    <a asp-page="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                        </svg>
+                        Lire la suite
+                    </a>
+                </p>
+            </div>
+            
+        }
+    </div>
+
+    <h2>Descriptif du projet...</h2>
+
+    <div class="row">
+        @foreach (var descriptif in IndexModel.DescriptifList)
+        {
+            <div class="col-lg-4 col-sm-12">
+                <p class="actu_text">
+                    <a asp-page="@descriptif.tag">
+                        @descriptif.text
+                    </a>
+                </p>
+                <p class="actu_date">
+                    @descriptif.date
+                </p>
+                <p class="actu_suite">
+                    <a asp-page="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                        </svg>
+                        Lire la suite
+                    </a>
+                </p>
+            </div>
+
+        }
+    </div>
 </div>

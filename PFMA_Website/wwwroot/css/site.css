@@ -68,11 +68,6 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 
 /* ----------------- PERSONAL STYLE ------------------ */
 
@@ -91,12 +86,13 @@ body {
 .navbar {
     background-color: var(--jaune-principal);
     padding: 0;
+    z-index: 100;
 }
 
 
 .login-out
 {
-    margin-top: 10px;
+    transform: translate(-20%, 20%);
 }
 
 .login-out a {

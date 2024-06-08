@@ -1,0 +1,42 @@
+﻿@page
+@model PFMA_Website.Pages.Start.Admin.Descriptifs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriptif[0].text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriptif[0].tag)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Descriptif) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DescriptifID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DescriptifID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DescriptifID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
