@@ -1,7 +1,7 @@
-﻿using System.Text;
-using System;
-using System.Security.Cryptography;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PFMA_Website.Model
 {

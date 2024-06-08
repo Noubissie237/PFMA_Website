@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PFMA_Website.Data;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System;
-using System.Security.Cryptography;
 
 namespace PFMA_Website.Pages
 {
@@ -40,7 +40,7 @@ namespace PFMA_Website.Pages
                 {
                     return true;
                 }
-   
+
             }
             return false;
         }
@@ -59,7 +59,7 @@ namespace PFMA_Website.Pages
                         password = password,
 
                     });
-                    
+
                     _dataContext.SaveChanges();
                     var claims = new List<Claim> { new Claim(ClaimTypes.Name, email) };
                     var claimsIdentity = new ClaimsIdentity(claims, "Login");
@@ -78,7 +78,7 @@ namespace PFMA_Website.Pages
             }
             errorMessage = true;
             return Page();
-            
+
         }
         public IActionResult OnGet(string ReturnUrl = "/Start")
         {

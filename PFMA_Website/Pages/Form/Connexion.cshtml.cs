@@ -1,18 +1,15 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PFMA_Website.Data;
-using System.Text;
 using System;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
 using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Linq;
-using Microsoft.Extensions.Options;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PFMA_Website.Pages
 {
@@ -61,7 +58,7 @@ namespace PFMA_Website.Pages
                         nameReal = item.Name;
                     }
                 }
-                var claims = new List<Claim> { new Claim(ClaimTypes.Name,  nameReal, email) };
+                var claims = new List<Claim> { new Claim(ClaimTypes.Name, nameReal, email) };
                 var claimsIdentity = new ClaimsIdentity(claims, "Login");
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,

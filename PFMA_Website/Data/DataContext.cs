@@ -7,13 +7,13 @@ namespace PFMA_Website.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base (options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Producteur> Producteurs { get; set; }
-        public DbSet<Vendeur> Vendeurs { get;set; }
+        public DbSet<Vendeur> Vendeurs { get; set; }
         public DbSet<Actualite> Actualites { get; set; }
         public DbSet<Descriptif> Descriptifs { get; set; }
     }

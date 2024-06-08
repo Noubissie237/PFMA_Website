@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using PFMA_Website.Data;
 using PFMA_Website.Model;
+using System.Threading.Tasks;
 
 namespace PFMA_Website.Pages.Admin.Users
 {
@@ -22,7 +18,9 @@ namespace PFMA_Website.Pages.Admin.Users
         }
 
         [BindProperty]
+#pragma warning disable CS0108 // Un membre masque un membre hérité ; le mot clé new est manquant
         public User User { get; set; }
+#pragma warning restore CS0108 // Un membre masque un membre hérité ; le mot clé new est manquant
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
