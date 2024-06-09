@@ -51,7 +51,7 @@
                 <div class="col-lg-4 col-sm-12">
                     <h3 class="descript_title">@descriptif.titre</h3>
                     <p class="actu_text">
-                        <a asp-page="@descriptif.tag">
+                        <a asp-page="/Start/" asp-route-descriptifTag="@descriptif.tag">
                             @descriptif.text
                         </a>
                     </p>
@@ -59,7 +59,7 @@
                         @descriptif.date
                     </p>
                     <p class="actu_suite">
-                        <a asp-page="@descriptif.tag">
+                        <a asp-page="/Start/"+@descriptif.tag>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
                             </svg>

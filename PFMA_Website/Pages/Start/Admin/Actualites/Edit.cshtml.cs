@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PFMA_Website.Model;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PFMA_Website.Pages.Start.Admin.Actualites
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly PFMA_Website.Data.DataContext _context;

@@ -5,60 +5,64 @@
     ViewData["Title"] = "Edit-administration";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <h1>Edit</h1>
 
-<h4>Producteur</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Producteur.ProducteurID" />
-            <div class="form-group">
-                <label asp-for="Producteur.region" class="control-label"></label>
-                <input asp-for="Producteur.region" class="form-control" />
-                <span asp-validation-for="Producteur.region" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.nom_op" class="control-label"></label>
-                <input asp-for="Producteur.nom_op" class="form-control" />
-                <span asp-validation-for="Producteur.nom_op" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.producteur_paddy_semences" class="control-label"></label>
-                <input asp-for="Producteur.producteur_paddy_semences" class="form-control" />
-                <span asp-validation-for="Producteur.producteur_paddy_semences" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.superficie" class="control-label"></label>
-                <input asp-for="Producteur.superficie" class="form-control" />
-                <span asp-validation-for="Producteur.superficie" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.localistation" class="control-label"></label>
-                <input asp-for="Producteur.localistation" class="form-control" />
-                <span asp-validation-for="Producteur.localistation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.contact" class="control-label"></label>
-                <input asp-for="Producteur.contact" class="form-control" />
-                <span asp-validation-for="Producteur.contact" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Producteur.site_internet" class="control-label"></label>
-                <input asp-for="Producteur.site_internet" class="form-control" />
-                <span asp-validation-for="Producteur.site_internet" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Producteur</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Producteur.ProducteurID" />
+                <div class="form-group">
+                    <label asp-for="Producteur.region" class="control-label"></label>
+                    <input asp-for="Producteur.region" class="form-control" />
+                    <span asp-validation-for="Producteur.region" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.nom_op" class="control-label"></label>
+                    <input asp-for="Producteur.nom_op" class="form-control" />
+                    <span asp-validation-for="Producteur.nom_op" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.producteur_paddy_semences" class="control-label"></label>
+                    <input asp-for="Producteur.producteur_paddy_semences" class="form-control" />
+                    <span asp-validation-for="Producteur.producteur_paddy_semences" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.superficie" class="control-label"></label>
+                    <input asp-for="Producteur.superficie" class="form-control" />
+                    <span asp-validation-for="Producteur.superficie" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.localistation" class="control-label"></label>
+                    <input asp-for="Producteur.localistation" class="form-control" />
+                    <span asp-validation-for="Producteur.localistation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.contact" class="control-label"></label>
+                    <input asp-for="Producteur.contact" class="form-control" />
+                    <span asp-validation-for="Producteur.contact" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producteur.site_internet" class="control-label"></label>
+                    <input asp-for="Producteur.site_internet" class="form-control" />
+                    <span asp-validation-for="Producteur.site_internet" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Index">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

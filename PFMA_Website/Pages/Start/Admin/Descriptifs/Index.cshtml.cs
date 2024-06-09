@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PFMA_Website.Model;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PFMA_Website.Pages.Start.Admin.Descriptifs
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly PFMA_Website.Data.DataContext _context;

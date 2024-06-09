@@ -5,68 +5,73 @@
     ViewData["Title"] = "Index-administration";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].region)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].nom_op)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].producteur_paddy_semences)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].superficie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].localistation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].contact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producteur[0].site_internet)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Producteur) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.region)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nom_op)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.producteur_paddy_semences)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.superficie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.localistation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.site_internet)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProducteurID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProducteurID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProducteurID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].region)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].nom_op)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].producteur_paddy_semences)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].superficie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].localistation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].contact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producteur[0].site_internet)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Producteur)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.region)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_op)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.producteur_paddy_semences)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.superficie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.localistation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.site_internet)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ProducteurID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ProducteurID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ProducteurID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
