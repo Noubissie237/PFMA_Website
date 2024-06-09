@@ -15,6 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Descriptif.DescriptifID" />
             <div class="form-group">
+                <label asp-for="Descriptif.titre" class="control-label"></label>
+                <input asp-for="Descriptif.titre" class="form-control" />
+                <span asp-validation-for="Descriptif.titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Descriptif.text" class="control-label"></label>
                 <input asp-for="Descriptif.text" class="form-control" />
                 <span asp-validation-for="Descriptif.text" class="text-danger"></span>

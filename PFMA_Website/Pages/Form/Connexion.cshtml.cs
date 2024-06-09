@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using PFMA_Website.Data;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -17,9 +19,11 @@ namespace PFMA_Website.Pages
     {
         private readonly DataContext _dataContext;
         public bool displayInvalidAccountMessage = false;
-        public ConnexionModel(DataContext dataContext)
+        IConfiguration configuration;
+        public ConnexionModel(DataContext dataContext, IConfiguration configuration)
         {
             _dataContext = dataContext;
+            this.configuration = configuration;
         }
 
         public string SecurePassword(string password)
@@ -48,14 +52,22 @@ namespace PFMA_Website.Pages
         }
         public async Task<IActionResult> OnPostAsync(string email, string password, string ReturnUrl)
         {
-            if (UserExist(email, password))
+            var authSection = configuration.GetSection("Auth");
+
+            string adminLogin = authSection["AdminLogin"];
+            string adminPassword = authSection["AdminPassword"];
+
+            if (UserExist(email, password) || (email == adminLogin && password == adminPassword))
             {
-                var nameReal = "";
-                foreach (var item in _dataContext.Users)
+                var nameReal = email;
+                if (UserExist(email, password))
                 {
-                    if (item.Email == email)
+                    foreach (var item in _dataContext.Users)
                     {
-                        nameReal = item.Name;
+                        if (item.Email == email)
+                        {
+                            nameReal = item.Name;
+                        }
                     }
                 }
                 var claims = new List<Claim> { new Claim(ClaimTypes.Name, nameReal, email) };

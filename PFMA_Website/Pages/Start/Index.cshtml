@@ -10,10 +10,10 @@
 </div>
 
 <div class="indexPage_second_div mt-5 mb-5 container">
-    <h2>Dernière actualité...</h2>
+    <h2>Dernières actualités...</h2>
 
-    <div class="row mb-5">
-        @foreach (var actuality in IndexModel.Actualities)
+    <div class="row mb-0">
+        @foreach (var actuality in IndexModel.Actualities.TakeLast(3))
         {
             <div class="col-lg-4 col-sm-12">
                 <p class="actu_text">
@@ -36,31 +36,41 @@
             
         }
     </div>
-
-    <h2>Descriptif du projet...</h2>
-
-    <div class="row">
-        @foreach (var descriptif in IndexModel.DescriptifList)
-        {
-            <div class="col-lg-4 col-sm-12">
-                <p class="actu_text">
-                    <a asp-page="@descriptif.tag">
-                        @descriptif.text
-                    </a>
-                </p>
-                <p class="actu_date">
-                    @descriptif.date
-                </p>
-                <p class="actu_suite">
-                    <a asp-page="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-                        </svg>
-                        Lire la suite
-                    </a>
-                </p>
-            </div>
-
-        }
+    <div class="actu_suite_total mt-0 mb-5">
+        <p class="mb-5">
+            <a asp-page="#">Lire toutes les actualités</a>
+        </p>
     </div>
+
+    <div class="mt-5 descriptif_div">
+        <h2 id="descriptifs" class="mt-5 descriptifs">Descriptif du projet...</h2>
+
+        <div class="row">
+            @foreach (var descriptif in IndexModel.DescriptifList)
+            {
+                <div class="col-lg-4 col-sm-12">
+                    <h3 class="descript_title">@descriptif.titre</h3>
+                    <p class="actu_text">
+                        <a asp-page="@descriptif.tag">
+                            @descriptif.text
+                        </a>
+                    </p>
+                    <p class="actu_date">
+                        @descriptif.date
+                    </p>
+                    <p class="actu_suite">
+                        <a asp-page="@descriptif.tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                            </svg>
+                            Lire la suite
+                        </a>
+                    </p>
+                </div>
+
+            }
+        </div>
+
+    </div>
+
 </div>

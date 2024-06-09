@@ -5,6 +5,7 @@
     --blanc: #FFF;
     --jaune-principal: #cfd322da;
     --jaune-secondaire: #cfd3227c;
+    --blanc-kaki: #1b1a1a0a;
 }
 
 body {
@@ -44,6 +45,15 @@ body {
     margin: 10px 20px 20px 0;
 }
 
+.indexPage_second_div .descript_title {
+    font-size: 20px;
+    font-weight: 900;
+    color: red;
+    text-align: center;
+    border: none;
+    margin: 10px 20px 20px 0;
+}
+
 .indexPage_second_div .actu_suite
 {
     display: flex;
@@ -66,5 +76,18 @@ body {
 
 .indexPage_second_div .row
 {
-    background-color: #80808031
+    background-color: var(--blanc-kaki);
+}
+
+.actu_suite_total p
+{
+    display:inline;
+    font-size: 10px;
+    background-color: var(--vert-principal);
+    padding: 15px;
+    float: right;   
+}
+
+.actu_suite_total a{
+    color: var(--blanc);
 }

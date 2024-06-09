@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Descriptif[0].titre)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Descriptif[0].text)
             </th>
             <th>
@@ -25,6 +28,9 @@
     <tbody>
 @foreach (var item in Model.Descriptif) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titre)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.text)
             </td>
